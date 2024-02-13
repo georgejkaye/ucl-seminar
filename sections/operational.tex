@@ -1,0 +1,274 @@
+% !TeX root = ../main-presentation.tex
+\section{Operational semantics}
+
+\begin{frame}
+    \frametitle{Doing something useful}
+    \centering
+    \Large
+    \pause
+    \begin{tabular}{cc}
+        \alert{Equational reasoning}
+        &
+        \pause
+        \textbf{Unstructured pen and paper proofs}
+        \\[1em]
+        \pause
+        \alert{Operational semantics}
+        &
+        \pause
+        \textbf{Mechanical step-by-step reduction}
+    \end{tabular}
+\end{frame}
+\begin{frame}
+    \frametitle{Going global}
+
+    \centering
+
+    \dsptikzfig{strings/category/f}[box=F,colour=seq]
+    \Large=\normalsize
+    \dsptikzfig{circuits/productivity/trace-delay}[core=\hat{F},state=\listvar{v}]
+
+    \vspace{1em}
+    \Large
+    by moving boxes and wires around
+\end{frame}
+
+\begin{frame}
+    \frametitle{Going global}
+
+    \centering
+    \Large
+    Some notation:
+    \normalsize
+    \begin{gather*}
+        \dsptikzfig{circuits/components/waveforms/register}
+        :=
+        \dsptikzfig{circuits/components/waveforms/register-shorthand}
+        \qquad
+        \Large
+        \text{\alert{`Register'}}
+    \end{gather*}
+
+    \pause
+    By adding equations
+    \dsptikzfig{strings/structure/monoid/unitality-l-lhs}
+    \Large=\normalsize
+    \dsptikzfig{strings/structure/monoid/unitality-l-rhs}
+    \Large=\normalsize
+    \dsptikzfig{strings/structure/monoid/unitality-r-lhs}
+    and
+    \dsptikzfig{circuits/axioms/bottom-delay-lhs}
+    \Large=\normalsize
+    \dsptikzfig{circuits/axioms/bottom-delay-rhs}
+
+    \dsptikzfig{circuits/productivity/trace-delay}[core=\hat{F},state=\listvar{v}]
+    \Large=\normalsize
+    \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\tilde{F},state=\listvar{s}]
+
+    \pause
+    \vspace{1em}
+    \Large
+    What are we going to do with the non-delay-guarded trace?
+
+\end{frame}
+\begin{frame}
+    \frametitle{Do we even need it?}
+
+    In industry, normally circuits must be \alert{delay-guarded}.
+
+    \pause
+
+    But this rules out some \alert{clever} circuits!
+
+    \vspace{0.5em}
+
+    \scalebox{0.75}{
+        \dsptikzfig{circuits/examples/cyclic-combinational/circuit-scirc}
+        \(\Rightarrow\)
+        \dsptikzfig{circuits/examples/cyclic-combinational/reduced-true}
+    }
+
+    \pause
+
+    \vspace{0.5em}
+
+    \scriptsize
+    (And also it would be cheating)
+
+\end{frame}
+\begin{frame}
+    \frametitle{Getting rid of non-delay-guarded feedback}
+
+    \(\values\) is a \alert{finite} lattice...\
+
+    \pause
+    The functions are monotone...
+
+    \pause
+    We can compute the \alert{least fixed point} in finite iterations!
+    \pause
+
+    \centering
+    \[
+        \dsptikzfig{circuits/instant-feedback/f0-box}
+        :=
+        \dsptikzfig{circuits/instant-feedback/f0-definition}
+        \pause
+        \qquad
+        \dsptikzfig{circuits/instant-feedback/fkp1-box}
+        :=
+        \dsptikzfig{circuits/instant-feedback/fkp1-definition}
+    \]
+
+    \begin{axiom}
+        \[
+            \dsptikzfig{circuits/instant-feedback/equation-lhs}[box=F,trace=x]
+            \quad
+            =
+            \quad
+            \dsptikzfig{circuits/instant-feedback/fixpoint-concrete}
+        \]
+    \end{axiom}
+\end{frame}
+\begin{frame}
+    \frametitle{Getting rid of non-delay-guarded feedback}
+
+
+    \[
+        \dsptikzfig{circuits/instant-feedback/trand}
+        \quad
+        \pause
+        =
+        \quad
+        \dsptikzfig{circuits/instant-feedback/trand-instfb}
+        =
+        \pause
+        \quad
+        \dsptikzfig{strings/structure/monoid/init}[colour=comb]
+    \]
+
+
+\end{frame}
+\begin{frame}
+    \frametitle{Here's Mealy}
+
+    \centering
+    \Large
+    For \alert{any} circuit
+    \normalsize
+
+    \[
+        \dsptikzfig{strings/category/f}[box=F,colour=seq]
+        \quad
+        =
+        \quad
+        \dsptikzfig{circuits/productivity/mealy-form}[core=\tilde{F},state=\overline{s}]
+    \]
+
+\end{frame}
+\begin{frame}
+    \frametitle{What is the goal}
+
+    \centering
+
+    \pause
+    \Large
+    We want to compute the \alert{outputs} of circuits given some \alert{inputs}
+    \normalsize
+
+    \begin{gather*}
+        \dsptikzfig{circuits/productivity/productive-goal-lhs}[box=F]
+        \rightsquigarrow^\star
+        \dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]
+    \end{gather*}
+
+    \pause
+
+    \vspace{1em}
+
+    \Large
+
+    How does a circuit \alert{process} a value?
+
+\end{frame}
+\begin{frame}
+    \frametitle{Reducing values}
+
+    \begin{gather*}
+        \dsptikzfig{circuits/axioms/gate-lhs}
+        =
+        \dsptikzfig{circuits/axioms/gate-rhs}
+        \qquad
+        \dsptikzfig{circuits/axioms/fork-lhs}
+        =
+        \dsptikzfig{circuits/axioms/fork-rhs}
+        \\[0.5em]
+        \dsptikzfig{circuits/axioms/join-lhs}
+        =
+        \dsptikzfig{circuits/axioms/join-rhs}
+        \qquad
+        \dsptikzfig{circuits/axioms/stub-lhs}
+        =
+        \dsptikzfig{strings/monoidal/empty}
+    \end{gather*}
+
+    \vspace{1em}
+    \Large
+
+    \begin{lemma}
+        For every
+        \dsptikzfig{strings/category/f}[box=F,colour=comb]
+        there exists
+        \dsptikzfig{circuits/components/values/vs}[val=\listvar{w}]
+        s.t.
+        \dsptikzfig{circuits/components/circuits/f-applied}[box=F,colour=comb]
+        =
+        \dsptikzfig{circuits/components/values/vs}[val=\listvar{w}].
+    \end{lemma}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Catching the jet stream}
+
+    \Large
+
+    What about \alert{delays}?
+
+    \normalsize
+
+    \begin{gather*}
+        \visible<2->{\dsptikzfig{circuits/axioms/generalised-streaming-lhs}[box=F]}
+        \visible<3->{=}
+        \visible<3->{\dsptikzfig{circuits/axioms/generalised-streaming-lhs-verbose}[box=F]}
+        \visible<4->{=}
+        \visible<4->{\dsptikzfig{circuits/axioms/generalised-streaming-rhs}[box=F]}
+        \qquad
+        \visible<5->{\text{\alert{'Streaming'}}}
+    \end{gather*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Catching the jet stream}
+
+    \vspace{-2em}
+
+    \begin{gather*}
+        \visible<2->{\dsptikzfig{circuits/productivity/productive-goal-lhs}[box=F]}
+        \visible<3->{=}
+        \visible<3->{\dsptikzfig{circuits/productivity/mealy-form-applied}[core=\hat{F}]}
+        \visible<4->{=}
+        \visible<4->{\dsptikzfig{circuits/productivity/mealy-form-streamed}[core=\hat{F}]}
+        \\[0.5em]
+        \visible<5->{=}
+        \visible<5->{\dsptikzfig{circuits/productivity/mealy-form-instant}[core=\hat{F}]}
+        \visible<6->{=}
+        \visible<6->{\dsptikzfig{circuits/productivity/mealy-form-instant-registers}[core=\hat{F}]}
+        \\[0.5em]
+        \visible<7->{=}
+        \visible<7->{\dsptikzfig{circuits/productivity/mealy-form-produced}[core=\hat{F}]}
+        \visible<8->{=}
+        \visible<8->{\dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]}
+    \end{gather*}
+\end{frame}

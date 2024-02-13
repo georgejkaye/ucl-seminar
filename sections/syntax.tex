@@ -1,0 +1,167 @@
+\section{Syntax}
+
+\begin{frame}
+    \frametitle{Combinational circuit components}
+    \renewcommand{\arraystretch}{1.25}
+    \vspace{1em}
+    \pause
+    \begin{minipage}{0.33\textwidth}
+        \centering
+        \alert{gates}
+        \renewcommand{\arraystretch}{2}
+
+        \vspace{1em}
+
+        \begin{tabular}{rl}
+            \dsptikzfig{circuits/components/gates/and} &
+            AND gate \\
+            \dsptikzfig{circuits/components/gates/or} &
+            OR gate \\
+            \dsptikzfig{circuits/components/gates/not} &
+            NOT gate \\
+        \end{tabular}
+    \end{minipage}
+    \pause
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \alert{(co)monoid structure}
+
+        \vspace{1em}
+
+        \renewcommand{\arraystretch}{1.75}
+        \pause
+        \begin{tabular}{cl}
+            \hspace{0.175cm}
+            \dsptikzfig{strings/structure/monoid/init}[colour=comb] &
+            disconnected \\
+            \pause
+            \dsptikzfig{strings/structure/comonoid/copy}[colour=comb] &
+            fork \\
+            \pause
+            \dsptikzfig{strings/structure/monoid/merge}[colour=comb] &
+            join \\
+            \pause
+            \dsptikzfig{strings/structure/comonoid/discard}[colour=comb]
+            \hspace{0.175cm} &
+            stub \\
+        \end{tabular}
+    \end{minipage}
+    \pause
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \alert{categorical structure}
+
+        \vspace{1em}
+
+        \renewcommand{\arraystretch}{1.75}
+        \begin{tabular}{cl}
+            \pause
+            \dsptikzfig{strings/category/identity}[colour=comb] &
+            identity \\
+            \pause
+            \dsptikzfig{strings/symmetric/symmetry}[colour=comb] &
+            symmetry \\
+        \end{tabular}
+    \end{minipage}
+
+
+    \vspace{0.5em}
+
+    \pause
+    \begin{center}
+        \alert{Light} circuits \(
+            \dsptikzfig{strings/category/f}[box=F,colour=comb]
+        \) only contain gates and structure.
+    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Sequential circuit components}
+
+    \renewcommand{\arraystretch}{1.75}
+
+    \pause
+
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Values}
+
+        \pause
+
+        \begin{tabular}{rl}
+            \dsptikzfig{circuits/components/values/vs}[val=\belnapfalse] &
+            false \\
+            \dsptikzfig{circuits/components/values/vs}[val=\belnaptrue] &
+            true \\
+            \pause
+            \dsptikzfig{circuits/components/values/vs}[val=\belnapboth] &
+            short circuit
+        \end{tabular}
+
+    \end{minipage}
+    \pause
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Delay}
+
+        \[
+            \dsptikzfig{circuits/components/waveforms/delay}
+        \]
+    \end{minipage}
+    \pause
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Feedback}
+
+        \[
+            \dsptikzfig{strings/category/f-2-2}[box=F,colour=seq]
+            \,\,\Rightarrow\,\,
+            \dsptikzfig{strings/traced/trace-rhs}[box=F,colour=seq]
+        \]
+    \end{minipage}
+
+    \vspace{1em}
+
+    \pause
+
+    \begin{center}
+        \alert{Dark} circuits \(
+            \dsptikzfig{strings/category/f}[box=F,colour=seq]
+        \) may contain delay or feedback.
+    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Building circuits}
+
+    \centering
+    \LARGE
+    Circuits are morphisms in a
+    \alert{freely generated symmetric traced monoidal category} (STMC).
+
+    \vspace{1em}
+
+    \pause
+    \dsptikzfig{strings/category/composition}[box1=F,box2=G,colour=seq]
+    \pause
+    \quad
+    \dsptikzfig{strings/monoidal/tensor}[box1=F,box2=G,colour=seq]
+    \pause
+    \quad
+    \dsptikzfig{strings/traced/trace-rhs}[box=F,colour=seq]
+
+\end{frame}
+\begin{frame}
+    \frametitle{Need an example?}
+
+    \centering
+
+    \pause
+
+    \tikzfig{circuits/examples/sr-latch/real-circuit}
+
+    \vspace{1em}
+    \pause
+
+    \tikzfig{circuits/examples/sr-latch/circuit}
+
+
+\end{frame}
