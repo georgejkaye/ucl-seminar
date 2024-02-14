@@ -1,7 +1,27 @@
-\section{Semantics}
+\section{Denotational semantics}
 
 \begin{frame}
     \frametitle{We need some meaning}
+
+    \centering
+
+    \huge
+    \textbf{What is the meaning?}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{We need some meaning}
+
+    \centering
+    \scalebox{4}{\textbf{Denotational}}
+
+    \scalebox{4}{\textbf{semantics}}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{}
 
     \pause
     Values are interpreted in a \alert{lattice}:
@@ -18,9 +38,9 @@
             \dsptikzfig{strings/structure/monoid/init}[colour=comb]
             \,&\mapsto\, \bot \\
             \dsptikzfig{circuits/components/values/vs}[val=\belnapfalse]
-            \,&\mapsto\, 0 \\
+            \,&\mapsto\, \belnapfalse \\
             \dsptikzfig{circuits/components/values/vs}[val=\belnaptrue]
-            \,&\mapsto\, 1 \\
+            \,&\mapsto\, \belnaptrue \\
             \dsptikzfig{circuits/components/values/vs}[val=\top]
             \,&\mapsto\, \top
         \end{align*}
