@@ -1,1 +1,179 @@
 \section{Algebraic semantics}
+
+\begin{frame}
+    \frametitle{Stdspl takes a whdspe}
+
+    \centering
+    \LARGE
+
+    This is a \alert{superexponential} upper bound for testing circuit
+    equivalence
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Reducing it down}
+
+    \pause
+
+    \centering
+    \scalebox{4}{\textbf{Algebraic}}
+
+    \scalebox{4}{\textbf{semantics}}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Mealy is so back}
+    \centering
+    \begin{gather*}
+        \dsptikzfig{strings/structure/monoid/unitality-l-lhs}
+        =
+        \dsptikzfig{strings/structure/monoid/unitality-l-rhs}
+        \quad
+        \dsptikzfig{strings/structure/monoid/unitality-r-lhs}
+        =
+        \dsptikzfig{strings/structure/monoid/unitality-r-rhs}
+        \\[1em]
+        \dsptikzfig{circuits/axioms/bottom-delay-lhs}
+        =
+        \dsptikzfig{circuits/axioms/bottom-delay-rhs}
+        \quad
+        \dsptikzfig{circuits/instant-feedback/equation-lhs}
+        =
+        \dsptikzfig{circuits/instant-feedback/fixpoint-concrete}
+    \end{gather*}
+
+    \LARGE
+    By these equations, \(
+        \dsptikzfig{strings/category/f}[box=F,colour=seq]
+        =
+        \dsptikzfig{circuits/productivity/mealy-form}
+    \)
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{It's completely normal}
+
+    \centering
+    \LARGE
+
+    Say we have a procedure \(|-|\) for
+    establishing a \alert{canonical circuit} for a function
+    \(\morph{f}{\valuetuple{m}}{\valuetuple{n}}\)
+
+    \pause
+
+    \vspace{1em}
+
+    A circuit is \alert{normalised} if it is in the image of \(|-|\)
+
+    \pause
+
+    \vspace{1em}
+
+    What equations are needed to \\ normalise any circuit?
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{It's completely normal}
+    \vspace{-1em}
+
+    \begin{gather*}
+        \dsptikzfig{circuits/axioms/belnap/and-associativity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/and-associativity-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/or-associativity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/or-associativity-rhs}
+        \\
+        \dsptikzfig{circuits/axioms/belnap/and-or-distributivity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/and-or-distributivity-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/or-and-distributivity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/or-and-distributivity-rhs}
+        \\
+        \dsptikzfig{circuits/axioms/belnap/and-commutativity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/and-commutativity-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/or-commutativity-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/or-commutativity-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/and-idempotent-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/and-idempotent-rhs}
+        \\
+        \dsptikzfig{circuits/axioms/belnap/absorption-2-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/absorption-2-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/absorption-1-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/absorption-1-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/or-idempotent-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/or-idempotent-rhs}
+        \\
+        \dsptikzfig{circuits/axioms/belnap/translation/and-fork-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/translation/and-fork-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/belnap/translation/or-fork-lhs}
+        =
+        \dsptikzfig{circuits/axioms/belnap/translation/or-fork-rhs}
+        \\
+        \dsptikzfig{strings/structure/comonoid/commutativity-rhs}
+        =
+        \dsptikzfig{strings/structure/comonoid/commutativity-lhs}
+        \quad
+        \dsptikzfig{strings/structure/comonoid/associativity-lhs}
+        =
+        \dsptikzfig{strings/structure/comonoid/associativity-rhs}
+        \quad
+        \dsptikzfig{strings/structure/comonoid/unitality-l-lhs}
+        =
+        \dsptikzfig{strings/structure/comonoid/unitality-l-rhs}
+    \end{gather*}
+\end{frame}
+\begin{frame}
+    \frametitle{It's completely normal}
+
+    \centering
+    \LARGE
+    Is this enough?
+    \pause
+
+
+\end{frame}
+\begin{frame}
+    \frametitle{Encoding}
+
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Encoding}
+
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{It is complete}
+
+    \LARGE
+
+    \begin{theorem}
+        Two circuits are equal by the equations if and only if they are
+        denotationally equal.
+    \end{theorem}
+
+\end{frame}
