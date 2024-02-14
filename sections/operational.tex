@@ -49,30 +49,37 @@
         \text{\alert{`Register'}}
     \end{gather*}
 
-    \pause
-    By adding equations
-    \dsptikzfig{strings/structure/monoid/unitality-l-lhs}
-    \Large=\normalsize
-    \dsptikzfig{strings/structure/monoid/unitality-l-rhs}
-    \Large=\normalsize
-    \dsptikzfig{strings/structure/monoid/unitality-r-lhs}
-    and
-    \dsptikzfig{circuits/axioms/bottom-delay-lhs}
-    \Large=\normalsize
-    \dsptikzfig{circuits/axioms/bottom-delay-rhs}
+    \vspace{1em}
 
-    \dsptikzfig{circuits/productivity/trace-delay}[core=\hat{F},state=\listvar{v}]
-    \Large=\normalsize
-    \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\tilde{F},state=\listvar{s}]
+    \pause
+
+    New reduction:
+
+    \dsptikzfig{circuits/productivity/trace-delay}[core=F,state=\listvar{v}]
+    \Large\(\reduction\)\normalsize
+    \dsptikzfig{circuits/productivity/mealy-rule}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Going global}
+
+    \centering
+
+    \dsptikzfig{strings/category/f}[box=F,colour=seq]
+    \Large\(\reductions\)\normalsize
+    \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\hat{F},state=\listvar{s}]
 
     \pause
     \vspace{1em}
+
     \Large
-    What are we going to do with the non-delay-guarded trace?
+    What are we going to do about the non-delay-guarded trace?
 
 \end{frame}
 \begin{frame}
     \frametitle{Do we even need it?}
+
+    \centering
 
     In industry, normally circuits must be \alert{delay-guarded}.
 
