@@ -47,6 +47,11 @@
 
     We want to find a set of \\ \alert{reductions} for digital circuits
 
+
+    \pause
+    We want to reduce circuits to their outputs \alert{syntactically}
+    in a \alert{step-by-step} manner
+
 \end{frame}
 \begin{frame}
     \frametitle{Going global}
@@ -312,4 +317,38 @@
         \visible<8->{\coloneqq}
         \visible<8->{\dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]}
     \end{gather*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Observe this}
+
+    \centering
+    \LARGE
+
+    When are two circuits \alert{observationally equivalent}?
+
+    \pause
+
+    Circuits have \alert{finitely many states}...
+
+    \pause
+    \Large
+    \begin{definition}
+        Two circuits with at most \(c\) delay components are observationally
+        equivalent if the reduction procedure creates the same outputs for all
+        inputs of length \(|\values|^c+1\).
+    \end{definition}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Observe this}
+
+    \Large
+
+    \begin{theorem}
+        Two circuits are observationally equivalent if and only if they are
+        denotationally equivalent.
+    \end{theorem}
+
 \end{frame}
