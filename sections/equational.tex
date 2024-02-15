@@ -1,7 +1,7 @@
 \section{Algebraic semantics}
 
 \begin{frame}
-    \frametitle{Stdspl takes a whdspe}
+    \frametitle{Still takes a while}
 
     \centering
     \LARGE
@@ -9,10 +9,14 @@
     This is a \alert{superexponential} upper bound for testing circuit
     equivalence
 
+    \vspace{1em}
+    \pause
+    Can we do better?
+
 \end{frame}
 
 \begin{frame}
-    \frametitle{Reducing it down}
+    \frametitle{Efficiency is everything}
 
     \pause
 
@@ -25,6 +29,12 @@
 \begin{frame}
     \frametitle{Mealy is so back}
     \centering
+
+    \Large
+    First things first...
+
+    \normalsize
+    \pause
     \begin{gather*}
         \dsptikzfig{strings/structure/monoid/unitality-l-lhs}
         =
@@ -43,7 +53,7 @@
         \dsptikzfig{circuits/instant-feedback/fixpoint-concrete}
     \end{gather*}
 
-    \LARGE
+    \Large
     By these equations, \(
         \dsptikzfig{strings/category/f}[box=F,colour=seq]
         =
@@ -51,7 +61,16 @@
     \)
 
 \end{frame}
+\begin{frame}
+    \frametitle{It's completely normal}
 
+    \centering
+    \LARGE
+
+    We want a way to use equations to translate a circuit into another
+    circuit with the same behaviour
+
+\end{frame}
 \begin{frame}
     \frametitle{It's completely normal}
 
@@ -149,29 +168,150 @@
     \LARGE
     Is this enough?
     \pause
+    \normalsize
 
+    \vspace{1em}
+
+    \dsptikzfig{circuits/examples/state-change/circuit-simpler-mealy}
+    \quad
+    \dsptikzfig{circuits/examples/state-change/circuit-mealy}
+
+    \vspace{1em}
+    \Large
+    The cores may \alert{not} have the same semantics!
+
+    \pause
+
+    \vspace{0.5em}
+
+    \textbf{Idea:} \alert{encode} circuits so their state words have length
+    equal to the number of states
+
+\end{frame}
+\begin{frame}
+    \frametitle{State your intention}
+
+    \centering
+    \LARGE
+
+    Need to know the number of states: \alert{isolate} the state transition
+    and output
+
+    \normalsize
+    \vspace{1em}
+    \(
+        \dsptikzfig{circuits/productivity/mealy-form}[core=F,colour=seq]
+        =
+        \dsptikzfig{circuits/algebraic/encoding}[transition={F_0},output={F_1}]
+    \)
+\end{frame}
+\begin{frame}
+    \frametitle{Cartesian doubt}
+
+    \centering
+    \Large
+
+    Need equations to make the fork \alert{natural} and \alert{unital}
+
+    \normalsize
+
+    \vspace{1em}
+
+    \(
+        \dsptikzfig{strings/structure/cartesian/naturality-copy-lhs}[box=F,colour=seq]
+        =
+        \dsptikzfig{strings/structure/cartesian/naturality-copy-rhs}[box=F,colour=seq]
+        \quad
+        \quad
+        \dsptikzfig{strings/structure/comonoid/unitality-l-lhs}
+        =
+        \dsptikzfig{strings/structure/comonoid/unitality-l-rhs}
+        \quad
+        \dsptikzfig{strings/structure/comonoid/unitality-r-lhs}
+        =
+        \dsptikzfig{strings/structure/comonoid/unitality-r-rhs}
+    \)
+
+    \pause
+    \normalsize
+
+    \vspace{1em}
+
+    \(
+        \dsptikzfig{strings/category/f-1-2}[box=F,colour=seq]
+        =
+        \dsptikzfig{circuits/algebraic/isolate-cartesian/isolate-step-1}[box=F,colour=seq]
+        =
+        \dsptikzfig{circuits/algebraic/isolate-cartesian/isolate}[box=F,colour=seq]
+    \)
+
+
+\end{frame}
+\begin{frame}
+    \frametitle{Cartesian doubt}
+
+    \begin{gather*}
+        \dsptikzfig{circuits/axioms/fork-gate-lhs}[gate=p,dom=m,cod=n]
+        =
+        \dsptikzfig{circuits/axioms/fork-gate-rhs}[gate=p,dom=m,cod=n]
+        \quad
+        \dsptikzfig{circuits/axioms/fork-lhs}
+        =
+        \dsptikzfig{circuits/axioms/fork-rhs}
+        \quad
+        \dsptikzfig{circuits/axioms/delay-fork-lhs}
+        =
+        \dsptikzfig{circuits/axioms/delay-fork-rhs}
+        \\
+        \dsptikzfig{strings/structure/frobenius/copy-merge-lhs}
+        =
+        \dsptikzfig{strings/structure/frobenius/copy-merge-rhs}
+        \quad
+        \dsptikzfig{strings/structure/bialgebra/merge-copy-lhs}
+        =
+        \dsptikzfig{strings/structure/bialgebra/merge-copy-rhs}
+    \end{gather*}
 
 \end{frame}
 \begin{frame}
     \frametitle{Encoding}
 
+    \centering
+    \LARGE
+    Now add an \alert{encoding} equation
 
+    \pause
+    \normalsize
+    \vspace{1em}
 
-\end{frame}
+    \(
+        \dsptikzfig{circuits/algebraic/encoding}[state=\listvar{s},transition=F,output=G]
+        =
+        \dsptikzfig{circuits/algebraic/encoding-longstate}[state=\gamma_{\leq}(\listvar{s}),transition={\transitiontranslation{f}},output={\outputtranslation{g}}]
+    \)
 
-\begin{frame}
-    \frametitle{Encoding}
+    \pause
 
-
+    \vspace{1em}
+    \scriptsize
+    (I'm hiding some of the internal machinations here)
 
 \end{frame}
 
 \begin{frame}
     \frametitle{It is complete}
 
-    \LARGE
+    \centering
+    \Large
+    By the completeness of the denotational semantics, each stream function
+    has a corresponding \alert{encoded} circuit...
+
+    \pause
+    \vspace{1em}
+
 
     \begin{theorem}
+        \centering
         Two circuits are equal by the equations if and only if they are
         denotationally equal.
     \end{theorem}
