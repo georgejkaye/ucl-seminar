@@ -93,19 +93,23 @@
     \begin{frame}
         \frametitle{Conclusion}
 
-        We have developed a \alert{compositional framework} for digital circuits
+        \centering
+        \Large
 
-        \pause
+        \begin{tikzcd}[ampersand replacement=\&,row sep=large]
+            \&
+            \text{Denotational}
+            \arrow[visible on=<2->,leftrightarrow,swap]{dl}{\cong}
+            \&
+            \\
+            \text{Operational}
+            \arrow[visible on=<3->,leftrightarrow,swap]{rr}{\cong}
+            \&
+            \&
+            \text{Algebraic}
+            \arrow[visible on=<4->,leftrightarrow, swap]{ul}{\cong}
+        \end{tikzcd}
 
-        We have an \alert{operational semantics} for digital circuits
-
-        \pause
-
-        We can model this using \alert{graph rewrites} on \alert{hypergraphs}
-
-        \pause
-
-        This has been \alert{implemented} in a hardware description language
 
     \end{frame}
 \end{document}
