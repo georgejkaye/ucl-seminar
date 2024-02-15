@@ -5,7 +5,7 @@
     \centering
     \renewcommand{\arraystretch}{1.25}
     \vspace{1em}
-    \pause
+    \await
     \begin{minipage}{0.33\textwidth}
         \centering
         \alert{gates}
@@ -22,7 +22,7 @@
             NOT gate \\
         \end{tabular}
     \end{minipage}
-    \pause
+    \await
     \begin{minipage}{0.32\textwidth}
         \centering
         \alert{(co)monoid structure}
@@ -30,24 +30,24 @@
         \vspace{1em}
 
         \renewcommand{\arraystretch}{1.75}
-        \pause
+        \await
         \begin{tabular}{cl}
             \hspace{0.175cm}
             \dsptikzfig{strings/structure/monoid/init}[colour=comb] &
             disconnected \\
-            \pause
+            \await
             \,\,\dsptikzfig{strings/structure/comonoid/copy}[colour=comb] &
             fork \\
-            \pause
+            \await
             \,\,\dsptikzfig{strings/structure/monoid/merge}[colour=comb] &
             join \\
-            \pause
+            \await
             \,\,\,\,\dsptikzfig{strings/structure/comonoid/discard}[colour=comb]
             \hspace{0.175cm} &
             stub \\
         \end{tabular}
     \end{minipage}
-    \pause
+    \await
     \begin{minipage}{0.32\textwidth}
         \centering
         \alert{categorical structure}
@@ -56,10 +56,10 @@
 
         \renewcommand{\arraystretch}{1.75}
         \begin{tabular}{cl}
-            \pause
+            \await
             \dsptikzfig{strings/category/identity}[colour=comb] &
             identity \\
-            \pause
+            \await
             \dsptikzfig{strings/symmetric/symmetry}[colour=comb] &
             symmetry \\
         \end{tabular}
@@ -67,13 +67,13 @@
 
     \vspace{0.5em}
 
-    \pause
+    \await
     \alert{Light} circuits \(
         \dsptikzfig{strings/category/f}[box=F,colour=comb]
     \) only contain gates and structure.
 
     \scriptsize
-    \pause
+    \await
     (actually, we do it more generally than this, but let's keep it simple)
 \end{frame}
 \begin{frame}
@@ -81,26 +81,26 @@
 
     \renewcommand{\arraystretch}{1.75}
 
-    \pause
+    \await
 
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Values}
 
-        \pause
+        \await
 
         \begin{tabular}{rl}
             \dsptikzfig{circuits/components/values/vs}[val=\belnapfalse] &
             false \\
             \dsptikzfig{circuits/components/values/vs}[val=\belnaptrue] &
             true \\
-            \pause
+            \await
             \dsptikzfig{circuits/components/values/vs}[val=\top] &
             short circuit
         \end{tabular}
 
     \end{minipage}
-    \pause
+    \await
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Delay}
@@ -109,7 +109,7 @@
             \dsptikzfig{circuits/components/waveforms/delay}
         \]
     \end{minipage}
-    \pause
+    \await
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Feedback}
@@ -123,7 +123,7 @@
 
     \vspace{1em}
 
-    \pause
+    \await
 
     \begin{center}
         \alert{Dark} circuits \(
@@ -141,12 +141,12 @@
 
     \vspace{1em}
 
-    \pause
+    \await
     \dsptikzfig{strings/category/composition}[box1=F,box2=G,colour=seq]
-    \pause
+    \await
     \quad
     \dsptikzfig{strings/monoidal/tensor}[box1=F,box2=G,colour=seq]
-    \pause
+    \await
     \quad
     \dsptikzfig{strings/traced/trace-rhs}[box=F,colour=seq]
 
@@ -156,12 +156,12 @@
 
     \centering
 
-    \pause
+    \await
 
     \tikzfig{circuits/examples/sr-latch/real-circuit}
 
     \vspace{1.5em}
-    \pause
+    \await
 
     \tikzfig{circuits/examples/sr-latch/circuit}
 

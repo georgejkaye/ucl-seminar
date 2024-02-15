@@ -22,7 +22,7 @@
     \vspace{2em}
 
     \LARGE
-    \pause
+    \await
     What does this tell us about the \\
     \alert{structure} of these circuits?
 
@@ -30,7 +30,7 @@
 \begin{frame}
     \frametitle{Reducing it down}
 
-    \pause
+    \await
 
     \centering
     \scalebox{4}{\textbf{Operational}}
@@ -47,7 +47,7 @@
     We want to find a set of \\ \alert{reductions} for digital circuits
 
 
-    \pause
+    \await
     We want to reduce circuits to their outputs \alert{syntactically}
     in a \alert{step-by-step} manner
 
@@ -58,7 +58,7 @@
     \centering
 
     \dsptikzfig{strings/category/f}[box=F,colour=seq]
-    \pause
+    \await
     \Large=\normalsize
     \dsptikzfig{circuits/productivity/trace-delay}[core=\hat{F},state=\listvar{v}]
 
@@ -73,7 +73,7 @@
     \centering
     \Large
 
-    \pause
+    \await
 
     \normalsize
     \begin{gather*}
@@ -87,30 +87,17 @@
 
     \vspace{1em}
 
-    \pause
+    \await
 
     \dsptikzfig{circuits/productivity/trace-delay}[core=F,state=\listvar{v}]
     \Large\(\reduction\)\normalsize
     \dsptikzfig{circuits/productivity/mealy-rule}
 
-    \pause
+    \await
 
     \dsptikzfig{strings/category/f}[box=F,colour=seq]
     \Large\(\reductions\)\normalsize
     \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\hat{F},state=\listvar{s}]
-
-\end{frame}
-\begin{frame}
-    \frametitle{Going global}
-
-    \centering
-
-
-
-    \pause
-    \vspace{1em}
-
-    \Large
 
 \end{frame}
 \begin{frame}
@@ -120,11 +107,11 @@
 
     What are we going to do about the non-delay-guarded trace?
 
-    \pause
+    \await
 
     In industry, feedback is usually \alert{delay-guarded}.
 
-    \pause
+    \await
 
     But this rules out some \alert{clever} circuits!
 
@@ -138,7 +125,7 @@
         \dsptikzfig{circuits/examples/cyclic-combinational/reduced-true}
     }
 
-    \pause
+    \await
 
     \vspace{1em}
 
@@ -154,10 +141,10 @@
 
     \(\values\) is a \alert{finite} lattice...\
 
-    \pause
+    \await
     The functions are monotone...
 
-    \pause
+    \await
     We can compute the \alert{least fixed point} \\ in finite iterations!
 
 \end{frame}
@@ -169,13 +156,13 @@
         \dsptikzfig{circuits/instant-feedback/f0-box}
         \coloneqq
         \dsptikzfig{circuits/instant-feedback/f0-definition}
-        \pause
+        \await
         \qquad
         \dsptikzfig{circuits/instant-feedback/fkp1-box}
         \coloneqq
         \dsptikzfig{circuits/instant-feedback/fkp1-definition}
     \]
-    \pause
+    \await
     \[
         \dsptikzfig{circuits/instant-feedback/equation-lhs}[box=F,trace=x]
         \quad
@@ -192,7 +179,7 @@
     \[
         \dsptikzfig{circuits/instant-feedback/trand}
         \quad
-        \pause
+        \await
         \reduction
         \quad
         \dsptikzfig{circuits/instant-feedback/trand-instfb}
@@ -222,7 +209,7 @@
 
     \centering
 
-    \pause
+    \await
     \Large
     We want to compute the \alert{outputs} of circuits given some \alert{inputs}
     \normalsize
@@ -233,7 +220,7 @@
         \dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]
     \end{gather*}
 
-    \pause
+    \await
 
     \vspace{1em}
 
@@ -263,7 +250,7 @@
         \dsptikzfig{strings/monoidal/empty}
     \end{gather*}
 
-    \pause`'
+    \await`'
     \vspace{1em}
     \Large
 
@@ -291,13 +278,13 @@
     \normalsize
 
     \begin{gather*}
-        \visible<2->{\dsptikzfig{circuits/axioms/generalised-streaming-lhs}[box=F]}
-        \visible<3->{\coloneqq}
-        \visible<3->{\dsptikzfig{circuits/axioms/generalised-streaming-lhs-verbose}[box=F]}
-        \visible<4->{\reduction}
-        \visible<4->{\dsptikzfig{circuits/axioms/generalised-streaming-rhs}[box=F]}
+        \visible<\iftoggle{static}{1}{2-}>{\dsptikzfig{circuits/axioms/generalised-streaming-lhs}[box=F]}
+        \visible<\iftoggle{static}{1}{3-}>{\coloneqq}
+        \visible<\iftoggle{static}{1}{3-}>{\dsptikzfig{circuits/axioms/generalised-streaming-lhs-verbose}[box=F]}
+        \visible<\iftoggle{static}{1}{4-}>{\reduction}
+        \visible<\iftoggle{static}{1}{4-}>{\dsptikzfig{circuits/axioms/generalised-streaming-rhs}[box=F]}
         \qquad
-        \visible<5->{\text{\alert{'Streaming'}}}
+        \visible<\iftoggle{static}{1}{5-}>{\text{\alert{'Streaming'}}}
     \end{gather*}
 \end{frame}
 
@@ -307,21 +294,21 @@
     \vspace{-2em}
 
     \begin{gather*}
-        \visible<2->{\dsptikzfig{circuits/productivity/productive-goal-lhs}[box=F]}
-        \visible<3->{\reduction}
-        \visible<3->{\dsptikzfig{circuits/productivity/mealy-form-applied}[core=\hat{F}]}
-        \visible<4->{\reduction}
-        \visible<4->{\dsptikzfig{circuits/productivity/mealy-form-streamed}[core=\hat{F}]}
+        \visible<\iftoggle{static}{1}{2-}>{\dsptikzfig{circuits/productivity/productive-goal-lhs}[box=F]}
+        \visible<\iftoggle{static}{1}{3-}>{\reduction}
+        \visible<\iftoggle{static}{1}{3-}>{\dsptikzfig{circuits/productivity/mealy-form-applied}[core=\hat{F}]}
+        \visible<\iftoggle{static}{1}{4-}>{\reduction}
+        \visible<\iftoggle{static}{1}{4-}>{\dsptikzfig{circuits/productivity/mealy-form-streamed}[core=\hat{F}]}
         \\[0.5em]
-        \visible<5->{\reduction}
-        \visible<5->{\dsptikzfig{circuits/productivity/mealy-form-instant}[core=\hat{F}]}
-        \visible<6->{\reduction}
-        \visible<6->{\dsptikzfig{circuits/productivity/mealy-form-instant-registers}[core=\hat{F}]}
+        \visible<\iftoggle{static}{1}{5-}>{\reduction}
+        \visible<\iftoggle{static}{1}{5-}>{\dsptikzfig{circuits/productivity/mealy-form-instant}[core=\hat{F}]}
+        \visible<\iftoggle{static}{1}{6-}>{\reduction}
+        \visible<\iftoggle{static}{1}{6-}>{\dsptikzfig{circuits/productivity/mealy-form-instant-registers}[core=\hat{F}]}
         \\[0.5em]
-        \visible<7->{\reduction}
-        \visible<7->{\dsptikzfig{circuits/productivity/mealy-form-produced}[core=\hat{F}]}
-        \visible<8->{\coloneqq}
-        \visible<8->{\dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]}
+        \visible<\iftoggle{static}{1}{7-}>{\reduction}
+        \visible<\iftoggle{static}{1}{7-}>{\dsptikzfig{circuits/productivity/mealy-form-produced}[core=\hat{F}]}
+        \visible<\iftoggle{static}{1}{8-}>{\coloneqq}
+        \visible<\iftoggle{static}{1}{8-}>{\dsptikzfig{circuits/productivity/productive-goal-rhs}[box=G]}
     \end{gather*}
 \end{frame}
 
@@ -333,13 +320,13 @@
 
     When are two circuits \alert{observationally equivalent}?
 
-    \pause
+    \await
 
     Circuits have \alert{finitely many states}...
 
     \vspace{1em}
 
-    \pause
+    \await
     \Large
     \begin{definition}
         Two circuits with at most \(c\) delay components are observationally
@@ -360,7 +347,7 @@
         denotationally equivalent.
     \end{theorem}
 
-    \pause
+    \await
 
     Sound and complete \alert{operational semantics}
 

@@ -9,6 +9,8 @@
 
 \newcommand{\svg}[3]{\raisebox{#1em}{\scalebox{#2}{\includesvg{imgs/#3}}}}
 
+\newcommand{\await}{\iftoggle{static}{}{\await}}
+
 \tikzset{
     invisible/.style={opacity=0},
     visible on/.style={alt={#1{}{invisible}}},
@@ -96,29 +98,29 @@
         \centering
         \Large
 
-        \pause
+        \await
 
         Three different semantics for sequential digital circuits
 
-        \pause
+        \await
 
         \vspace{1em}
 
         \begin{tikzcd}[ampersand replacement=\&,row sep=large]
             \&
             \text{Denotational}
-            \arrow[visible on=<4->,leftrightarrow,swap]{dl}{\cong}
+            \arrow[visible on=<\iftoggle{static}{1-}{4-}>,leftrightarrow,swap]{dl}{\cong}
             \&
             \\
             \text{Operational}
-            \arrow[visible on=<4->,leftrightarrow,swap]{rr}{\cong}
+            \arrow[visible on=<\iftoggle{static}{1-}{4-}>,leftrightarrow,swap]{rr}{\cong}
             \&
             \&
             \text{Algebraic}
-            \arrow[visible on=<4->,leftrightarrow, swap]{ul}{\cong}
+            \arrow[visible on=<\iftoggle{static}{1-}{4-}>,leftrightarrow, swap]{ul}{\cong}
         \end{tikzcd}
 
-        \pause\pause
+        \await\await
 
         \vspace{1em}
 
