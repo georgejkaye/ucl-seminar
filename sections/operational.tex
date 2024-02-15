@@ -58,6 +58,7 @@
     \centering
 
     \dsptikzfig{strings/category/f}[box=F,colour=seq]
+    \pause
     \Large=\normalsize
     \dsptikzfig{circuits/productivity/trace-delay}[core=\hat{F},state=\listvar{v}]
 
@@ -92,29 +93,34 @@
     \Large\(\reduction\)\normalsize
     \dsptikzfig{circuits/productivity/mealy-rule}
 
+    \pause
+
+    \dsptikzfig{strings/category/f}[box=F,colour=seq]
+    \Large\(\reductions\)\normalsize
+    \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\hat{F},state=\listvar{s}]
+
 \end{frame}
 \begin{frame}
     \frametitle{Going global}
 
     \centering
 
-    \dsptikzfig{strings/category/f}[box=F,colour=seq]
-    \Large\(\reductions\)\normalsize
-    \dsptikzfig{circuits/productivity/pre-mealy-form}[core=\hat{F},state=\listvar{s}]
+
 
     \pause
     \vspace{1em}
 
     \Large
-    What are we going to do about the non-delay-guarded trace?
 
 \end{frame}
 \begin{frame}
-    \frametitle{Do we even need it?}
+    \frametitle{The sticking point}
 
     \centering
 
-    \LARGE
+    What are we going to do about the non-delay-guarded trace?
+
+    \pause
 
     In industry, feedback is usually \alert{delay-guarded}.
 
@@ -152,7 +158,7 @@
     The functions are monotone...
 
     \pause
-    We can compute the \alert{least fixed point} in finite iterations!
+    We can compute the \alert{least fixed point} \\ in finite iterations!
 
 \end{frame}
 \begin{frame}
@@ -257,6 +263,7 @@
         \dsptikzfig{strings/monoidal/empty}
     \end{gather*}
 
+    \pause`'
     \vspace{1em}
     \Large
 
@@ -345,11 +352,17 @@
 \begin{frame}
     \frametitle{Observe this}
 
+    \centering
     \Large
 
     \begin{theorem}
         Two circuits are observationally equivalent if and only if they are
         denotationally equivalent.
     \end{theorem}
+
+    \pause
+
+    Sound and complete \alert{operational semantics}
+
 
 \end{frame}

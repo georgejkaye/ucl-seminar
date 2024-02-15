@@ -91,25 +91,38 @@
     \input{sections/graphs}
 
     \begin{frame}
-        \frametitle{Conclusion}
+        \frametitle{To the end}
 
         \centering
         \Large
 
+        \pause
+
+        Three different semantics for sequential digital circuits
+
+        \pause
+
+        \vspace{1em}
+
         \begin{tikzcd}[ampersand replacement=\&,row sep=large]
             \&
             \text{Denotational}
-            \arrow[visible on=<2->,leftrightarrow,swap]{dl}{\cong}
+            \arrow[visible on=<4->,leftrightarrow,swap]{dl}{\cong}
             \&
             \\
             \text{Operational}
-            \arrow[visible on=<3->,leftrightarrow,swap]{rr}{\cong}
+            \arrow[visible on=<4->,leftrightarrow,swap]{rr}{\cong}
             \&
             \&
             \text{Algebraic}
             \arrow[visible on=<4->,leftrightarrow, swap]{ul}{\cong}
         \end{tikzcd}
 
+        \pause\pause
+
+        \vspace{1em}
+
+        Can adapt for automatic reasoning using \alert{graph rewriting}
 
     \end{frame}
 \end{document}
