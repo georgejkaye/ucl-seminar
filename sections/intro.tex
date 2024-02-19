@@ -146,7 +146,7 @@
         \iftoggle{static}{}{\only<2-4>{\visible<4>{\includegraphics[width=0.5\textwidth]{imgs/ghica}}}}%
         \iftoggle{static}{\includegraphics[width=0.5\textwidth]{imgs/ghica-ocaml}}{\only<5->{\includegraphics[width=0.5\textwidth]{imgs/ghica-ocaml}}}%
 
-        \only<2->{\visible<7>{\emph{*OCaml noises*}}}
+        \only<\iftoggle{static}{1}{2-}>{\visible<\iftoggle{static}{1}{7}>{\emph{*OCaml noises*}}}
     \end{minipage}
 \end{frame}
 
