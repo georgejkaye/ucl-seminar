@@ -36,13 +36,13 @@
     \begin{minipage}{0.49\textwidth}
         \begin{align*}
             \dsptikzfig{strings/structure/monoid/init}[colour=comb]
-            \,&\mapsto\, \bot \\
+            \, & \mapsto\, \bot         \\
             \dsptikzfig{circuits/components/values/vs}[val=\belnapfalse]
-            \,&\mapsto\, \belnapfalse \\
+            \, & \mapsto\, \belnapfalse \\
             \dsptikzfig{circuits/components/values/vs}[val=\belnaptrue]
-            \,&\mapsto\, \belnaptrue \\
+            \, & \mapsto\, \belnaptrue  \\
             \dsptikzfig{circuits/components/values/vs}[val=\top]
-            \,&\mapsto\, \top
+            \, & \mapsto\, \top
         \end{align*}
     \end{minipage}
 \end{frame}
@@ -56,38 +56,38 @@
     \begin{center}
         \begin{tabular}{lrl}
             \dsptikzfig{circuits/components/gates/gate}[gate=g]
-            &
+             &
             \alert{monotone functions}
-            &
+             &
             \(\morph{\overline{g}}{\valuetuple{m}}{\values}\)
             \\
             \await
             \hspace{0.175cm}
             \dsptikzfig{strings/structure/monoid/init}[colour=comb]
-            &
+             &
             \alert{initialise}
-            &
+             &
             \(() \mapsto (\bot)\)
             \\
             \await
             \dsptikzfig{strings/structure/comonoid/copy}[colour=comb]
-            &
+             &
             \alert{copy}
-            &
+             &
             \(x \mapsto (x, x)\)
             \\
             \await
             \dsptikzfig{strings/structure/monoid/merge}[colour=comb]
-            &
+             &
             \alert{join in the lattice}
-            &
+             &
             \((x, y) \mapsto x \ljoin y\)
             \\
             \await
             \dsptikzfig{strings/structure/comonoid/discard}[colour=comb]
-            &
+             &
             \alert{discard}
-            &
+             &
             \(x \mapsto ()\)
         \end{tabular}
         \await
@@ -98,14 +98,14 @@
     \end{center}
 \end{frame}
 \begin{frame}
-        \frametitle{Functions are not enough}
+    \frametitle{Functions are not enough}
 
-        \centering
-        \LARGE
-        How do we model \alert{delay}?
+    \centering
+    \LARGE
+    How do we model \alert{delay}?
 
-        \await
-        \alert{Streams!}
+    \await
+    \alert{Streams!}
 \end{frame}
 \begin{frame}
     \frametitle{Streams}
@@ -136,17 +136,17 @@
     produces streams.
     \[
         f(
-            v_0
-            \streamcons
-            v_1
-            \streamcons
-            v_2
-            \streamcons
-            v_3
-            \streamcons
-            v_4
-            \streamcons
-            \cdots
+        v_0
+        \streamcons
+        v_1
+        \streamcons
+        v_2
+        \streamcons
+        v_3
+        \streamcons
+        v_4
+        \streamcons
+        \cdots
         ) =
         w_0
         \streamcons
@@ -180,7 +180,7 @@
         \normalsize
         \dsptikzfig{circuits/components/waveforms/delay}
         \LARGE(
-            v_0 \streamcons v_1 \streamcons v_2 \streamcons \cdots
+        v_0 \streamcons v_1 \streamcons v_2 \streamcons \cdots
         )
         \coloneqq
         \bot \streamcons v_0 \streamcons v_1 \streamcons v_2 \streamcons \cdots
@@ -190,9 +190,9 @@
 
     \centering
     \LARGE
-    Does every circuit correspond to a stream function \(
-        \valuetuplestream{m} \to \valuetuplestream{n}
-    \)?
+    Does every stream function \(
+    \valuetuplestream{m} \to \valuetuplestream{n}
+    \) correspond to a circuit?
 
     \Huge
     \await
@@ -238,7 +238,7 @@
     \frametitle{Some operations on stream functions}
 
     Given a causal stream function \(
-        \morph{f}{\valuetuplestream{m}}{\valuetuplestream{n}}
+    \morph{f}{\valuetuplestream{m}}{\valuetuplestream{n}}
     \) and an element \(a \in \valuetuple{m}\)...
 
     \await
